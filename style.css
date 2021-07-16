@@ -18,3 +18,8 @@ h1{
     color: goldenrod;
     font-size: 60px;
 }
+p{
+    font-size: 35px;
+    margin-top: 20px;
+    color: #fff;
+}
