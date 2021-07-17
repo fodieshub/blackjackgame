@@ -1,9 +1,7 @@
-let firstCard = getRandonCard()
-let secondCard = getRandonCard()
-let message = ""
+ let message = ""
 let isAlive = false
 let hasBlackJack = false
-let cards = [firstCard, secondCard]
+let cards = [getRandonCard(), getRandonCard()]
 let sum = 0
 
 
@@ -24,6 +22,7 @@ function getRandonCard(){
 
 function startGame(){
     isAlive = true
+    console.table(cards)
     sum = cards[0] + cards[1]
     renderGame()
 }
@@ -33,9 +32,11 @@ function renderGame(){
         message = "Do you want to draw another card?"
     }else if(sum === 21){
         message = "Wohoo! You have the blackjack"
+        endGame()
         hasBlackJack = true
     }else{
         message = "You are out of the game!!!"
+        endGame()
         isAlive = false
     }
     cardEl.textContent = "Your Cards Are: "
@@ -54,4 +55,8 @@ function newCard(){
         cards.push(card)
         renderGame()
     }
+}
+
+const endGame = () => {
+    document.querySelector(".btn-one").setAttribute("disabled", true)
 }
